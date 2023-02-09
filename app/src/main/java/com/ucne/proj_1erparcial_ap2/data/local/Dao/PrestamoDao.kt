@@ -16,10 +16,10 @@ interface PrestamoDao {
     @Query("""
         SELECT * 
         FROM Prestamos
-        WHERE prestamoId= PrestamoId
+        WHERE PrestamoId=:PrestamoId
         LIMIT 1
     """)
-    suspend fun replace(prestamoId: Int): PrestamosEntity?
+    suspend fun replace(PrestamoId: Int): PrestamosEntity?
     @Query("Select * from Prestamos")
     fun GetList(): Flow<List<PrestamosEntity>>
 
