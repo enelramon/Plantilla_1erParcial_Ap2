@@ -7,14 +7,10 @@ import javax.inject.Inject
 
 
 class RepositorioPrestamos @Inject constructor(
-    private  val PrestamoDao: PrestamoDao
+    private  val prestamoDao: PrestamoDao
 ) {
     suspend fun insert(prestamo: PrestamosEntity) {
-        return PrestamoDao.insert(prestamo)
+        return prestamoDao.insert(prestamo)
     }
-    suspend fun delete(prestamo: PrestamosEntity) = PrestamoDao.delete(prestamo)
-    suspend fun find(Deudor:Int) = PrestamoDao.find(Deudor)
-
-    fun getList(): Flow<List<PrestamosEntity>> = PrestamoDao.GetList()
-
+    fun getList(): Flow<List<PrestamosEntity>> = prestamoDao.GetList()
 }

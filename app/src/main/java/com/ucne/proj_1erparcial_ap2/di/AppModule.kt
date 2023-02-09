@@ -2,7 +2,7 @@ package com.ucne.proj_1erparcial_ap2.di
 
 import android.content.Context
 import androidx.room.Room
-import com.ucne.proj_1erparcial_ap2.data.local.Entity.RegistroPrestamosDb
+import com.ucne.proj_1erparcial_ap2.data.local.RegistroPrestamosDb
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,5 +31,5 @@ object AppModule {
     // TODO: Inyectar el DAO 
     @Singleton
     @Provides
-    fun providesPrestamoDao(db: RegistroPrestamosDb) = db.PrestamoDao
+    fun providesPrestamoDao(db: RegistroPrestamosDb) = db.prestamoDao
 }

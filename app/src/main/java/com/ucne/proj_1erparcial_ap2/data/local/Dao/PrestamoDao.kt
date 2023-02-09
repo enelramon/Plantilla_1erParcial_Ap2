@@ -8,28 +8,19 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface PrestamoDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(PrestamoEntity: PrestamosEntity)
+    suspend fun insert(prestamoEntity: PrestamosEntity)
 
     @Delete
-    suspend fun delete(PrestamoEntity: PrestamosEntity)
+    suspend fun delete(prestamoEntity: PrestamosEntity)
 
     @Query("""
         SELECT * 
         FROM Prestamos
-        WHERE deudor=:Deudor
+        WHERE prestamoId= PrestamoId
         LIMIT 1
     """)
-    suspend fun find(Deudor: Int): PrestamosEntity?
-
-    @Query("""SELECT * 
-        FROM Prestamos
-        ORDER BY Deudor desc
-    """)
+    suspend fun replace(prestamoId: Int): PrestamosEntity?
+    @Query("Select * from Prestamos")
     fun GetList(): Flow<List<PrestamosEntity>>
 
-}
-class dao{
-    fun save():Boolean{
-        return true
-    }
 }

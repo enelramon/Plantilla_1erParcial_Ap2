@@ -46,7 +46,7 @@ class RegistroViewModel @Inject constructor(
     fun insertar() {
         val prestamos = PrestamosEntity(
 
-            deudor = deudor.toInt(),
+            deudor = deudor,
             concepto = concepto,
             monto = monto .toDoubleOrNull() ?: 0.0
         )
