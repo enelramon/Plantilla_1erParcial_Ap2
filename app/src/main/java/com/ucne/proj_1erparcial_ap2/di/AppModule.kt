@@ -22,7 +22,7 @@ object AppModule {
         return Room.databaseBuilder(
             context,
             RegistroPrestamosDb::class.java,
-            "RegistroPrestamosDb"
+            "RegistroPrestamossDb"
         )
             .fallbackToDestructiveMigration()
             .build()

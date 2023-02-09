@@ -90,9 +90,9 @@ private fun PrestamoRow(prestamo: PrestamosEntity) {
                 .fillMaxWidth()
         ) {
             Text(
-                String.format("%.2f", prestamo.deudor),
-                textAlign = TextAlign.End,
-                modifier = Modifier.weight(2f)
+                text = prestamo.deudor,
+                style = MaterialTheme.typography.titleLarge,
+                modifier = Modifier.weight(3f)
             )
             Text(
                 text = prestamo.concepto,
