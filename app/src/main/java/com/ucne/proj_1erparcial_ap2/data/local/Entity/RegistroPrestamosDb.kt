@@ -1,8 +1,8 @@
-package com.ucne.proj_1erparcial_ap2.data.local
+package com.ucne.proj_1erparcial_ap2.data.local.Entity
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.ucne.proj_1erparcial_ap2.data.local.Entity.PrestamosEntity
+import com.ucne.proj_1erparcial_ap2.data.local.Dao.PrestamoDao
 
 @Database(
     entities = [
@@ -11,5 +11,5 @@ import com.ucne.proj_1erparcial_ap2.data.local.Entity.PrestamosEntity
     version = 1
 )
 abstract class RegistroPrestamosDb: RoomDatabase() {
-    abstract val PrestamoDao: PrestamosEntity
+    abstract val PrestamoDao: PrestamoDao
 }
