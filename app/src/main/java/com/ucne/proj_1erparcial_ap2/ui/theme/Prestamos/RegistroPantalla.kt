@@ -45,7 +45,8 @@ private fun PrestamoBody(
             singleLine = true
         )
 
-        if (viewModel.hasDeudorError) {
+        if (viewModel.hasDeudorError)
+        {
             Text(
                 modifier = Modifier.padding(8.dp),
                 text = "El campo Deudor es requerido",
@@ -58,8 +59,19 @@ private fun PrestamoBody(
                 .fillMaxWidth(),
             value = viewModel.concepto,
             onValueChange = {  viewModel.concepto = it },
-            label = { Text("Concepto") }
+            label = { Text("Concepto") },
+            isError = viewModel.hasConceptoError,
+            singleLine = true
         )
+
+        if(viewModel.hasConceptoError)
+        {
+            Text(
+                modifier = Modifier.padding(8.dp),
+                text = "El campo Concepto es requerido",
+                color = Color.Red
+            )
+        }
 
         OutlinedTextField(
             modifier = Modifier
@@ -67,8 +79,19 @@ private fun PrestamoBody(
                 .fillMaxWidth(),
             value = viewModel.monto,
             onValueChange = { viewModel.monto = it },
-            label = { Text("Monto") }
+            label = { Text("Monto") },
+            isError = viewModel.hasMontoError,
+            singleLine = true
         )
+
+        if (viewModel.hasMontoError)
+        {
+            Text(
+                modifier = Modifier.padding(8.dp),
+                text = "El campo Monto es requerido",
+                color = Color.Red
+            )
+        }
 
         ExtendedFloatingActionButton(
             modifier = Modifier
