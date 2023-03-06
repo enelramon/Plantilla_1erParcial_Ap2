@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -39,8 +40,18 @@ private fun PrestamoBody(
                 .fillMaxWidth(),
             value = viewModel.deudor,
             onValueChange = {  viewModel.deudor = it },
-            label = { Text("Deudor") }
+            label = { Text("Deudor") },
+            isError = viewModel.hasDeudorError,
+            singleLine = true
         )
+
+        if (viewModel.hasDeudorError) {
+            Text(
+                modifier = Modifier.padding(8.dp),
+                text = "El campo Deudor es requerido",
+                color = Color.Red
+            )
+        }
         OutlinedTextField(
             modifier = Modifier
                 .padding(8.dp)
